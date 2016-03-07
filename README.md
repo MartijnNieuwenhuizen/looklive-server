@@ -64,3 +64,8 @@ Load Event: 1.87s
 DOM Content Loaded: 1.51s
 First Paint: 1.67s
 Load Event: 1.87s
+
+**Resized Header Image + Picture Element**
+First Paint: 1.07s
+DOM Content Loaded: 1.36s
+Load Event: 1.95s

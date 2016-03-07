@@ -1,0 +1,30 @@
+.feedlist-detail {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	background-color: $bg-gray;
+	padding: 1em;
+
+	> section:last-of-type {
+		max-width: 35em;
+	}
+
+	&-info {
+
+	}
+	&-image {
+		max-width: 80vw;
+	}
+	&-title {
+		border-bottom: 1px solid $gray;
+		margin-top: .5em;
+	}
+
+	@media (min-width: 980px) {
+		padding: 3em;
+
+		> section:first-of-type {
+			margin-right: 2em;
+		}
+	}
+}
