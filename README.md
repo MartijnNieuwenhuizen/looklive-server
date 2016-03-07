@@ -81,3 +81,8 @@ Load Event: 1.69s
 First Paint: 1.02s
 DOM Content Loaded: 1.12s
 Load Event: 1.18s
+
+**After Positions Relative Fix**
+First Paint: 0.856ss
+DOM Content Loaded: 0.977s
+Load Event: 1.05s
