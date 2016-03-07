@@ -1,0 +1,19 @@
+/* Grid with felxbox */
+
+$grid-col: 12.500rem;
+$grid-padding: .5rem;
+
+/* Math */
+@mixin col($multiply) {
+	max-width: #{$grid-col * $multiply};
+	padding: 0 $grid-padding;
+}
+/*MAX 6*/
+/*@include col(1);*/
+
+/* Gutters */
+$gutter-xlarge: 1em;
+$gutter-large: .75em;
+$gutter: $grid-padding;
+$gutter-small: .25em;
+

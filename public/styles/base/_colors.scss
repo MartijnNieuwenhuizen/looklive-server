@@ -1,0 +1,15 @@
+$prime-color: hsl(180, 30%, 60%);
+$prime-color-lighter: lighten($prime-color, 20%);
+$prime-color-darker: darken($prime-color, 20%);
+
+$secondary-color: #4a4a4a;
+$secondary-color-lighter: lighten($secondary-color, 20%);
+
+$el-color: hsl(180, 30%, 60%);
+
+$white: #fff;
+$black: #000;
+$gray: #656565;
+$gray-bg: #f7f7f7;
+
+$font-color: #333333;
