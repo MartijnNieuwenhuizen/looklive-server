@@ -16,7 +16,7 @@ terminal and navigate to your project folder (for example `cd ~/Projects/lookliv
 this command to run the instal:
 
 ```
-npm install
+$ npm install
 ```
 
 That should get you setup.
@@ -25,11 +25,15 @@ That should get you setup.
 To run the server, stay at the 'root' of your project folder and type:
 
 ```
-npm start
+$ npm start
+```
+Run in a new Terminal window (in the project root folder)
+
+```
+$ gulp server
 ```
 
-That will get the server to run on port 3000. If you go to [http://localhost:3000](http://localhost:3000) in your browser
-you should see an overview page.
+This will automatically open a new window at [http://localhost:3001](http://localhost:3001) and refresh after you changed the CSS (later also with HTML and JS).
 
 ## The api
 
