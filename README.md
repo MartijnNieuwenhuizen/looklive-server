@@ -56,37 +56,37 @@ The API returns JSON (for now).
 # Performance
 ## Overview page
 **After Fork**
-*DOM Content Loaded: 1.47s
-*First Paint: 1.73s
-*Load Event: 2.42s
+* DOM Content Loaded: 1.47s
+* First Paint: 1.73s
+* Load Event: 2.42s
 
 **Styling Nav With Flexbox & BAM**
-*DOM Content Loaded: 1.51s
-*First Paint: 1.67s
-*Load Event: 1.87s
+* DOM Content Loaded: 1.51s
+* First Paint: 1.67s
+* Load Event: 1.87s
 
 **Compiling header images with Gulp**
-*DOM Content Loaded: 1.51s
-*First Paint: 1.67s
-*Load Event: 1.87s
+* DOM Content Loaded: 1.51s
+* First Paint: 1.67s
+* Load Event: 1.87s
 
 **Resized Header Image + Picture Element**
-*First Paint: 1.07s
-*DOM Content Loaded: 1.36s
-*Load Event: 1.95s
+* First Paint: 1.07s
+* DOM Content Loaded: 1.36s
+* Load Event: 1.95s
 
 ## Detail page
 **After Fork**
-*DOM Content Loaded: 1.22s
-*First Paint: 1.34s
-*Load Event: 1.69s
+* DOM Content Loaded: 1.22s
+* First Paint: 1.34s
+* Load Event: 1.69s
 
 **With Flexbox**
-*First Paint: 1.02s
-*DOM Content Loaded: 1.12s
-*Load Event: 1.18s
+* First Paint: 1.02s
+* DOM Content Loaded: 1.12s
+* Load Event: 1.18s
 
 **After Positions Relative Fix**
-*First Paint: 0.856ss
-*DOM Content Loaded: 0.977s
-*Load Event: 1.05s
+* First Paint: 0.856ss
+* DOM Content Loaded: 0.977s
+* Load Event: 1.05s
