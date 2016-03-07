@@ -1,0 +1,39 @@
+.nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: #252525;
+    padding: .5em 1em;
+
+    &__logo{
+        height: 30px;
+        display: block;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;    
+
+        &--item {
+            height: 100%;
+            line-height: 30px;
+            margin-right: 15px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                vertical-align: middle;
+
+                &:hover {
+                    color: #d84a4a;
+                }
+            }
+            img {
+                vertical-align: middle;
+                padding-right: .3em;
+                height: 15px;
+            }
+        }
+    }
+}
