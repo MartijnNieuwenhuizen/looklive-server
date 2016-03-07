@@ -1,0 +1,14 @@
+button {
+	border: none;
+	background-color: transparent;
+
+	&:hover {
+		
+	}
+	&:active {
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+}
