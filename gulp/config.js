@@ -16,7 +16,7 @@ var config = {
     // },
     
     sass: {
-        watch: ['./public/styles/**/*.scss'],
+        watch: ['public/styles/**/*.scss'],
         src: ['./public/styles/**/*.scss'],
         folder: './public/styles/',
         destFile: 'style.min.css'

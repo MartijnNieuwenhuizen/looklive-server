@@ -42,3 +42,25 @@ appearance id.
 product id.
 
 The API returns JSON (for now).
+
+
+
+
+
+
+
+# Performance
+**After Fork**
+DOM Content Loaded: 1.47s
+First Paint: 1.73s
+Load Event: 2.42s
+
+**Styling Nav With Flexbox & BAM**
+DOM Content Loaded: 1.51s
+First Paint: 1.67s
+Load Event: 1.87s
+
+**Compiling header images with Gulp**
+DOM Content Loaded: 1.51s
+First Paint: 1.67s
+Load Event: 1.87s
