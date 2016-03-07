@@ -2,6 +2,10 @@
 <html>
     <head>
         <title>{{title}}</title>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
         <link rel='stylesheet' href='/styles/style.min.css' />
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700,800,900,600,300,200,100' rel='stylesheet' type='text/css'>
     </head>
@@ -18,18 +22,16 @@
                     <li class="nav__list--item"> <a href="https://looklive.com/brands/"><img src="/icon/png/brands.png">Brands</a> </li>
                 </ul>
             </nav>
+
             <picture>
                 <source srcset="/img/header-1920.jpg" media="(min-width: 1280px)">
                 <source srcset="/img/header-1280.jpg" media="(min-width: 800px)">
                 <source srcset="/img/header-800.jpg" media="(min-width: 320px)">
                 <img src="/img/header-320.png" alt="Header Image" class="header__img">
             </picture>
-            <!-- <img src="/img/header.png"> -->
         </header>
 
-        <main role="main">
-            {{{body}}}
-        </main>
+        {{{body}}}
 
         <script src="/js/jquery.js"></script>
         <script src="/js/app.js"></script>

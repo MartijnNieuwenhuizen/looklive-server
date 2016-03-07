@@ -1,0 +1,52 @@
+.product {
+	
+	&-indicator {
+	    position: absolute;
+	    width: 20px;
+	    height: 20px;
+	    background-color: $blue;
+	    border: 2px solid $gray;
+	    border-radius: 50%;
+	}
+	&-indicator-active {
+		background-color: $light-green;
+	}
+	&-image {
+		width: 8em;
+		margin: .7em .7em .7em 0;
+	}
+	&-info {
+		flex: 1;
+	}
+}
+
+.actual {
+	display: flex;
+	flex-flow: row wrap;
+
+	.product-image {
+		width: 12em;
+	}
+}
+
+.actual,
+.similar {
+	padding-bottom: .5em;
+	border-bottom: 1px solid #ddd;
+
+	display: flex;
+	flex-flow: column wrap;
+
+	p {
+		font-size: 140%;
+		font-weight: bold;
+	}
+	h2 {
+		width: 100%;
+		font-size: 120%;
+	}
+
+	@media(min-width: 400px) {
+		flex-flow: row wrap;
+	}
+}

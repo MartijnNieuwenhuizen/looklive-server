@@ -1,11 +1,13 @@
-<ul class="feedlist">
-    {{#each items}}
-        
-        <li class="feedlist__item" data-uuid="{{id}}">
-	        <img class="feedlist__item--img" src="{{ image.url }}">
-	        <p class="feedlist__item--name"><img class="feedlist__item--avatar" src="{{ subject.avatar.url }}"> {{ subject.name }}</p>
-	        <a href="appearance/{{id}}" class="feedlist__item--title"><h1> {{title}} </h1></a>
-        </li>
+<main role="main">
+	<ul class="feedlist">
+	    {{#each items}}
+	        
+	        <li class="feedlist__item" data-uuid="{{id}}">
+		        <img class="feedlist__item--img" src="{{ image.url }}">
+		        <p class="avatar-name"><img class="avatar" src="{{ subject.avatar.url }}"> {{ subject.name }}</p>
+		        <a href="appearance/{{id}}" class="feedlist__item--title"><h1> {{title}} </h1></a>
+	        </li>
 
-    {{/each}}
-</ul>
+	    {{/each}}
+	</ul>
+</main>
