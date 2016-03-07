@@ -18,7 +18,13 @@
                     <li class="nav__list--item"> <a href="https://looklive.com/brands/"><img src="/icon/png/brands.png">Brands</a> </li>
                 </ul>
             </nav>
-            <img src="/img/header.png" class="header__img">
+            <picture>
+                <source srcset="/img/header-1920.jpg" media="(min-width: 1280px)">
+                <source srcset="/img/header-1280.jpg" media="(min-width: 800px)">
+                <source srcset="/img/header-800.jpg" media="(min-width: 320px)">
+                <img src="/img/header-320.png" alt="Header Image" class="header__img">
+            </picture>
+            <!-- <img src="/img/header.png"> -->
         </header>
 
         <main role="main">
