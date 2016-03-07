@@ -19,40 +19,44 @@
 
         <section class="feedlist-detail-info">
             <h2 class="feedlist-detail-title">Products</h2>
+            
+            <div class="product-container">
+            
+                {{#each products}}
 
-            {{#each products}}
-
-                <div class="product" data-uuid="{{id}}">
-                    <div class="actual">
-                        <h2>Actual</h2>
-                        <figure class="product-image">
-                            <img src="{{image.url}}">
-                        </figure>
-
-                        <div class="product-info">
-                            <p>{{ name }}</p>
-                            <p>{{ brand.name }}</p>
-                        </div>
-                    </div>
-
-                    {{#each similars}}
-
-                        <div class="similar">
-                            <h2>{{ similar_type }}</h2>
+                    <div class="product" data-uuid="{{id}}">
+                        <div class="actual">
+                            <h2>Actual</h2>
                             <figure class="product-image">
                                 <img src="{{image.url}}">
                             </figure>
+
                             <div class="product-info">
                                 <p>{{ name }}</p>
                                 <p>{{ brand.name }}</p>
                             </div>
                         </div>
-                    
-                    {{/each}}
 
-                </div>
-            
-            {{/each}}
+                        {{#each similars}}
+
+                            <div class="similar">
+                                <h2>{{ similar_type }}</h2>
+                                <figure class="product-image">
+                                    <img src="{{image.url}}">
+                                </figure>
+                                <div class="product-info">
+                                    <p>{{ name }}</p>
+                                    <p>{{ brand.name }}</p>
+                                </div>
+                            </div>
+                        
+                        {{/each}}
+
+                    </div>
+
+                    {{/each}}
+                    
+            </div>
 
         </section>
     </section>
