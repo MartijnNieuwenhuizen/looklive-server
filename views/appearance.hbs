@@ -1,6 +1,6 @@
 <main role="main" class="feedlist-detail" data-id="{{ item.id }}">
 
-    <section>
+    <section class="image-section">
         <figure class="feedlist-detail-img">
             <img src="{{ item.image.url }}">
         </figure>
@@ -9,7 +9,7 @@
         {{/each}}
     </section>
     
-    <section>
+    <section class="info-section">
         <p class="avatar-name">
             <img class="avatar" src="{{ item.subject.avatar.url }}"> 
             {{ item.subject.name }}
@@ -55,7 +55,7 @@
                     </div>
 
                     {{/each}}
-                    
+
             </div>
 
         </section>

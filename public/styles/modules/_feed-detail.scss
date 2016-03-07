@@ -5,10 +5,6 @@
 	background-color: $bg-gray;
 	padding: 1em;
 
-	> section:last-of-type {
-		max-width: 35em;
-	}
-
 	&-info {
 
 	}
@@ -27,4 +23,18 @@
 			margin-right: 2em;
 		}
 	}
+}
+
+/* Left section */
+.info-section {
+	max-width: 35em;
+	width: 100%;
+}
+
+/* Right section */
+	/* For the points */
+.image-section {
+	width: 25em;
+	height: 37.5em;
+	position: relative;
 }

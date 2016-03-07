@@ -50,6 +50,7 @@ The API returns JSON (for now).
 
 
 # Performance
+## Overview page
 **After Fork**
 DOM Content Loaded: 1.47s
 First Paint: 1.73s
@@ -69,3 +70,14 @@ Load Event: 1.87s
 First Paint: 1.07s
 DOM Content Loaded: 1.36s
 Load Event: 1.95s
+
+## Detail page
+**After Fork**
+DOM Content Loaded: 1.22s
+First Paint: 1.34s
+Load Event: 1.69s
+
+**With Flexbox**
+First Paint: 1.02s
+DOM Content Loaded: 1.12s
+Load Event: 1.18s
