@@ -16,7 +16,11 @@
 		margin-right: .3em;
 	}
 	&--title {
-		color: #00B7FF;
+		color: $blue
+
+		&:hover {
+			color: $red;
+		}
 
 		h1 {
 			font-size: 1.3em;

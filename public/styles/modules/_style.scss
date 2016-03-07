@@ -21,13 +21,13 @@ body .appearance .appearance-left .product-indicator {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #00B7FF;
-    border: 2px solid #ddd;
+    background-color: $blue;
+    border: 2px solid $gray;
     border-radius: 50%;
 }
 
 body .appearance .appearance-left .product-indicator.product-indicator-active {
-    background-color: #b4da55;
+    background-color: $light-green;
 }
 
 body .appearance .appearance-products-inner {
