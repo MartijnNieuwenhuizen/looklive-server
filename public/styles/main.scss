@@ -1,5 +1,4 @@
 // Utilities
-@import 'utilities/global-vars';
 @import 'utilities/mixins';
 
 // Base
@@ -7,12 +6,9 @@
 @import 'base/colors';
 @import 'base/layout';
 @import 'base/typography';
-@import 'base/animations';
 
 // Components
-@import 'components/buttons';
-@import 'components/list';
-@import 'components/blockquote';
 
 // Modules
+@import 'modules/header';
 @import 'modules/style';

@@ -122,12 +122,7 @@ gulp.task('sass', function() {
 gulp.task('browser-sync', function() {
    
     browserSync.init({
-        server: {
-            baseDir: config.base,
-            startPath: '/',
-            open: true
-        }, 
-        tunnel: "martijnnieuwenhuizen"
+    	proxy: 'localhost:3000'
     });
 
 });
