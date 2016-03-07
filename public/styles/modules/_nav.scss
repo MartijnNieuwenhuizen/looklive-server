@@ -21,12 +21,12 @@
             margin-right: 15px;
 
             a {
-                color: white;
+                color: $white;
                 text-decoration: none;
                 vertical-align: middle;
 
                 &:hover {
-                    color: #d84a4a;
+                    color: $red;
                 }
             }
             img {
