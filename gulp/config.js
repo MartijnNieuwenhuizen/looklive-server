@@ -17,10 +17,18 @@ var config = {
     
     sass: {
         watch: ['public/styles/**/*.scss'],
-        src: ['./public/styles/**/*.scss'],
+        src: ['./public/styles/main.scss'],
         folder: './public/styles/',
         destFile: 'style.min.css'
     },
+
+    critical: {
+        watch: ['public/styles/**/*.scss'],
+        src: ['./public/styles/critical.scss'],
+        folder: './public/styles/',
+        destFile: 'critical.min.css'
+    },
+    
 
     js: {
         watch: ['./public/js/app.js'],

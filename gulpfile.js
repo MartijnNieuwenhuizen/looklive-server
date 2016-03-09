@@ -118,6 +118,24 @@ gulp.task('sass', function() {
 
 });
 
+gulp.task('critical', function() {
+
+	return gulp.src(config.critical.src)
+		.pipe(plumber({
+		    errorHandler: config.error
+		}))
+		.pipe(sass({outputStyle: 'compressed'}))
+		.pipe(autoprefixer({
+
+			browsers: ['> 1%', 'last 2 versions'],
+			cascade: false
+
+		}))
+		.pipe(rename(config.critical.destFile))
+		.pipe(gulp.dest(config.critical.folder))
+
+});
+
 // Static server
 gulp.task('browser-sync', function() {
    
@@ -132,6 +150,7 @@ gulp.task('watch', function() {
 
 	// gulp.watch([config.html.watch], ['html', reload]);
 	gulp.watch([config.sass.watch], ['sass', reload]);
+	gulp.watch([config.critical.watch], ['critical', reload]);
 	// gulp.watch(config.js.watch, ['browserify', reload]);
 	gulp.watch(config.misc.src, ['misc:copy', reload]);
 
@@ -141,7 +160,7 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
 
 	return runSequence(
-		['sass', 'images', 'icons', 'misc:copy'],
+		['sass', 'critical', 'images', 'icons', 'misc:copy'],
 		// 'browserify',
 		'browser-sync',
 		'watch'
