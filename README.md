@@ -16,7 +16,7 @@ terminal and navigate to your project folder (for example `cd ~/Projects/lookliv
 this command to run the instal:
 
 ```
-$ npm install
+npm install
 ```
 
 That should get you setup.
@@ -25,15 +25,11 @@ That should get you setup.
 To run the server, stay at the 'root' of your project folder and type:
 
 ```
-$ npm start
-```
-Run in a new Terminal window (in the project root folder)
-
-```
-$ gulp server
+npm start
 ```
 
-This will automatically open a new window at [http://localhost:3001](http://localhost:3001) and refresh after you changed the CSS (later also with HTML and JS).
+That will get the server to run on port 3000. If you go to [http://localhost:3000](http://localhost:3000) in your browser
+you should see an overview page.
 
 ## The api
 
@@ -46,47 +42,3 @@ appearance id.
 product id.
 
 The API returns JSON (for now).
-
-
-
-
-
-
-
-# Performance
-## Overview page
-**After Fork**
-* DOM Content Loaded: 1.47s
-* First Paint: 1.73s
-* Load Event: 2.42s
-
-**Styling Nav With Flexbox & BAM**
-* DOM Content Loaded: 1.51s
-* First Paint: 1.67s
-* Load Event: 1.87s
-
-**Compiling header images with Gulp**
-* DOM Content Loaded: 1.51s
-* First Paint: 1.67s
-* Load Event: 1.87s
-
-**Resized Header Image + Picture Element**
-* First Paint: 1.07s
-* DOM Content Loaded: 1.36s
-* Load Event: 1.95s
-
-## Detail page
-**After Fork**
-* DOM Content Loaded: 1.22s
-* First Paint: 1.34s
-* Load Event: 1.69s
-
-**With Flexbox**
-* First Paint: 1.02s
-* DOM Content Loaded: 1.12s
-* Load Event: 1.18s
-
-**After Positions Relative Fix**
-* First Paint: 0.856ss
-* DOM Content Loaded: 0.977s
-* Load Event: 1.05s

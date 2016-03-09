@@ -2,42 +2,30 @@
 <html>
     <head>
         <title>{{title}}</title>
-
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+        <link rel='stylesheet' href='/styles/style.css' />
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700,800,900,600,300,200,100' rel='stylesheet' type='text/css'>
-        <style>
-            body{margin:0;padding:0}main{margin:0 auto;overflow:hidden}body{line-height:1.7;color:#333;font-family:"Raleway", Sans-Serif}h1{font-size:1.8em;margin:0}h2{font-size:1.5em;margin:0}h3{font-size:1.3em;margin:0}h4,p,a,span,i,a,b,blockquote,li{font-size:1em}.header{width:100%;max-height:80vh;overflow:hidden}.header__img{max-width:100%}.nav{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#252525;padding:.5em 1em}.nav__logo{height:30px;display:block}.nav__list{list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.nav__list--item{height:100%;line-height:30px;margin-right:15px}.nav__list--item a{color:#fff;text-decoration:none;vertical-align:middle}.nav__list--item a:hover{color:#d84a4a}.nav__list--item img{vertical-align:middle;padding-right:.3em;height:15px}
-
-        </style>
-        <link rel='stylesheet' href='/styles/style.min.css' />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="/"><img src="/img/logo.png" class="nav__logo" alt="LookLive Logo"></a>
-                <ul class="nav__list">
-                    <li class="nav__list--item"> <a href="/"><img src="/icon/png/home.png">Home</a> </li>
-                    <li class="nav__list--item"> <a href="https://looklive.com/discover/"><img src="/icon/png/latest.png">Latest</a> </li>
-                    <li class="nav__list--item"> <a href="https://looklive.com/people/"><img src="/icon/png/people.png">People</a> </li>
-                    <li class="nav__list--item"> <a href="https://looklive.com/shows/"><img src="/icon/png/shows.png">Shows</a> </li>
-                    <li class="nav__list--item"> <a href="https://looklive.com/music/"><img src="/icon/png/music.png">Music</a> </li>
-                    <li class="nav__list--item"> <a href="https://looklive.com/brands/"><img src="/icon/png/brands.png">Brands</a> </li>
-                </ul>
-            </nav>
-
-            <picture>
-                <source srcset="/img/header-1920.jpg" media="(min-width: 1280px)">
-                <source srcset="/img/header-1280.jpg" media="(min-width: 800px)">
-                <source srcset="/img/header-800.jpg" media="(min-width: 320px)">
-                <img src="/img/header-320.png" alt="Header Image" class="header__img">
-            </picture>
-        </header>
-
-        {{{body}}}
-
         <script src="/js/jquery.js"></script>
         <script src="/js/app.js"></script>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="nav-inner">
+                <div class="logo"><img src="/images/logo.png"></div>
+                <ul class="nav-items">
+                    <li><a href="/"><img src="/icons/png/home.png">Home</a></li>
+                    <li><a href="https://looklive.com/discover/"><img src="/icons/png/latest.png">Latest</a></li>
+                    <li><a href="https://looklive.com/people/"><img src="/icons/png/people.png">People</a></li>
+                    <li><a href="https://looklive.com/shows/"><img src="/icons/png/shows.png">Shows</a></li>
+                    <li><a href="https://looklive.com/music/"><img src="/icons/png/music.png">Music</a></li>
+                    <li><a href="https://looklive.com/brands/"><img src="/icons/png/brands.png">Brands</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="header"><img src="/images/header.png"></div>
+
+        <div class="inner-wrapper">
+            {{{body}}}
+        </div>
     </body>
 </html>
