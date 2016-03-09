@@ -90,3 +90,11 @@ The API returns JSON (for now).
 * First Paint: 0.856ss
 * DOM Content Loaded: 0.977s
 * Load Event: 1.05s
+
+**Script with jQuery**
+* app.js: time = 80ms
+* jQuery.js: time = 78ms
+
+**Script with Vanilla JS**
+* app.js: time = 70ms
+* jQuery.js: time = 0ms
