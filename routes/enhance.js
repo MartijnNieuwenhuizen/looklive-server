@@ -1,8 +1,8 @@
-var fs = require('fs');
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
-router.get('/feed', function(req, res, next) {
+router.get('/', function(req, res, next) {
     fs.readFile('resources/feed.json', 'utf8', function(err, data) {
         if(err) {
             res.status(404);
@@ -28,27 +28,8 @@ router.get('/appearance/:uuid', function(req, res, next) {
             products.push(JSON.parse(product));
         });
 
-        console.log(products);
-
         res.render('appearance', { title: item.title, item: item , products: products, layout: false});
     })
 });
-
-router.get('/product/:uuid', function(req, res, next) {
-    sendFile('product/'+req.params.uuid+'.json', res);
-});
-
-// Reads and sends file contents
-function sendFile(filename, res) {
-    res.type('json');
-    var file = fs.readFile('resources/'+filename, 'utf8', function(err, data) {
-        if(err) {
-            res.status(404);
-            res.json({'status': 404, 'message': 'resource with name: '+filename+' not found'});
-        } else {
-            res.send(data);
-        }
-    });
-}
 
 module.exports = router;
