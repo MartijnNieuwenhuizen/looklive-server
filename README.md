@@ -98,3 +98,7 @@ The API returns JSON (for now).
 **Script with Vanilla JS**
 * app.js: time = 70ms
 * jQuery.js: time = 0ms
+
+# Make a One Page Application
+## Explenation
+If JS is running -> change the window.location.hash from '/' to '/#feed'. At this point JS is taking over.

@@ -1,6 +1,8 @@
 // Change product section on detail page
 (function() {	
 	'use strict';
+
+	var mainInner = document.querySelector('main');
 	
 	var app = {
 		launcher: function() {
@@ -14,6 +16,11 @@
 		watch: function() {
 
 			routie({
+				'': function() {
+
+			    	window.location.hash = '#feed';
+
+			    },
 			    'feed': function() {
 
 			    	feed.show();
@@ -60,17 +67,15 @@
 				.then(function(response) {
 
 				var data = response;
-				template.show(data);
+				template.display(data);
 
-			});
-
+			})
 			.catch(function() {
 
 				var error = {
 					title: "Sorry, Cannot connect"
 				};
-
-				mainInner.innerHTML = error;
+				template.display(error);
 
 			});
 
@@ -81,6 +86,7 @@
 		display: function(data) {
 
 			var _data = data;
+			console.log(_data);
 			mainInner.innerHTML = _data;
 
 		}
