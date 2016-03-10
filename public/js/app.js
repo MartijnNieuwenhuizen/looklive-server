@@ -2,79 +2,91 @@
 (function() {	
 	'use strict';
 	
-	var product = document.querySelectorAll('.product');
+	var app = {
+		launcher: function() {
 
-	if ( product.length ) {
-		product[0].classList.add('product-active');
+			router.watch();
 
-		var productIndicator = document.querySelectorAll('.product-indicator');
-		var uuid = product[0].attributes[1].nodeValue;
-		productIndicator[0].setAttribute('data-uuid', uuid);
-		productIndicator[0].classList.add('product-indicator-active');
-
-		Array.prototype.forEach.call(productIndicator, function(productIndicator) {
-
-			productIndicator.addEventListener('click', showRelatedContent, false);
-
-			function showRelatedContent() {
-
-				var id = this.attributes[2].nodeValue;
-				
-				var activeEl = document.querySelector('.product-indicator-active');
-				activeEl.classList.remove('product-indicator-active');
-
-				var activeProduct = document.querySelector('.product-active');
-				activeProduct.classList.remove('product-active');
-
-				this.classList.add('product-indicator-active');
-
-
-				var p = document.querySelector(".product[data-uuid='" + id + "']");
-				p.classList.add('product-active');
-
-
-			}
-
-		});	
-	}
-	 
-})();
-
-
-(function() {	
-	'use strict';
-
-	var apiCall = function() {
-
-		return new Promise(function(resolve, reject) { // Resolve = .then / Reject = .catch;
-
-			var request = new XMLHttpRequest();
-
-			request.onloadend = function(response) {
-
-				var data = request.response;
-				resolve(data);					
-
-			}
-
-			request.onerror = reject;
-
-			request.open('GET', '/api/feed', true);
-			request.send();
-
-		});
-
+		}
 	};
 
+	var router = {
+		watch: function() {
 
-	apiCall().then(function(response) {
+			routie({
+			    'feed': function() {
 
-		var data = response;
-		var mainInner = document.querySelector('main');
-		mainInner.innerHTML = data;
+			    	feed.show();
 
-	});
+			    },
+			    'detail/:id': function(id) {
 
-	// put data in div.wrapper
-	 
+			    	// use id in api call
+
+			    }
+			});
+
+		}
+	};
+
+	var api = {
+		call: function() {
+
+			return new Promise(function(resolve, reject) {
+
+				var request = new XMLHttpRequest();
+
+				request.onloadend = function(response) {
+
+					var data = request.response;
+					resolve(data);					
+
+				}
+
+				request.onerror = reject;
+
+				request.open('GET', '/api/feed', true);
+				request.send();
+
+			});
+
+		}
+	};
+
+	var feed = {
+		show: function() {
+
+			api.call()
+				.then(function(response) {
+
+				var data = response;
+				template.show(data);
+
+			});
+
+			.catch(function() {
+
+				var error = {
+					title: "Sorry, Cannot connect"
+				};
+
+				mainInner.innerHTML = error;
+
+			});
+
+		}
+	}
+
+	var template = {
+		display: function(data) {
+
+			var _data = data;
+			mainInner.innerHTML = _data;
+
+		}
+	}
+
+
+	app.launcher();
+
 })();
