@@ -43,7 +43,38 @@
 
 (function() {	
 	'use strict';
-	
-	console.log("Foo");
+
+	var apiCall = function() {
+
+		return new Promise(function(resolve, reject) { // Resolve = .then / Reject = .catch;
+
+			var request = new XMLHttpRequest();
+
+			request.onloadend = function(response) {
+
+				var data = request.response;
+				resolve(data);					
+
+			}
+
+			request.onerror = reject;
+
+			request.open('GET', '/api/feed', true);
+			request.send();
+
+		});
+
+	};
+
+
+	apiCall().then(function(response) {
+
+		var data = response;
+		var mainInner = document.querySelector('main');
+		mainInner.innerHTML = data;
+
+	});
+
+	// put data in div.wrapper
 	 
 })();
