@@ -28,8 +28,6 @@ router.get('/appearance/:uuid', function(req, res, next) {
             products.push(JSON.parse(product));
         });
 
-        console.log(products);
-
         res.render('appearance', { title: item.title, item: item , products: products, layout: false});
     })
 });

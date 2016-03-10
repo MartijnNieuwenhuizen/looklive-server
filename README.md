@@ -101,4 +101,4 @@ The API returns JSON (for now).
 
 # Make a One Page Application
 ## Explenation
-If JS is running -> change the window.location.hash from '/' to '/#feed'. At this point JS is taking over.
+If JS is running -> the window.location.hash is changed from '/' to '/#feed' and JS is taking over.
