@@ -115,11 +115,19 @@ I'm testing the perfromance of this site, the testresults are below.
 * Routie: 61ms;
 * JS: 54ms
 
-### Serverside Rendering
+### Rendering
+**Serverside Rendering**
 !["serverside Rendering piechart"](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/serverside.png "serverside Rendering piechart")
 
-### Clientside Rendering
+**Clientside Rendering**
 ![slientside Rendering piechart](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/clientside.png "slientside Rendering piechart")
+
+### Icons
+**Load SVG's**
+![load svg extern](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/extern.png "load svg extern")
+
+**Inline SVG**
+![load svg inline](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/inline.png "load svg inline")
 
 # Make a One Page Application
 ## Explenation

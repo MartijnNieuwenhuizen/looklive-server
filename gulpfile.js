@@ -136,7 +136,7 @@ gulp.task('critical', function() {
 
 });
 
-Static server
+//Static server
 gulp.task('browser-sync', function() {
    
     browserSync.init({
