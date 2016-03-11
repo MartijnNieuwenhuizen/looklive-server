@@ -116,10 +116,10 @@ I'm testing the perfromance of this site, the testresults are below.
 * JS: 54ms
 
 ### Serverside Rendering
-![alt text](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/master/public/images/serverside.png "serverside Rendering piechart")
+!["serverside Rendering piechart"](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/serverside.png "serverside Rendering piechart")
 
 ### Clientside Rendering
-![alt text](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/master/public/images/clientside.png "slientside Rendering piechart")
+![slientside Rendering piechart](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/clientside.png "slientside Rendering piechart")
 
 # Make a One Page Application
 ## Explenation
