@@ -16,12 +16,6 @@
 		watch: function() {
 
 			routie({
-				'': function() {
-
-					window.location.hash = '#feed';
-					window.location.pathname = '';
-
-			    },
 			    'feed': function() {
 
 			    	feed.show();
