@@ -58,21 +58,21 @@ I'm testing the perfromance of this site, the testresults are below.
 * Browser: Chrome
 * Window: Private Mode
 
-**Changed HTML & CSS**
+### Changed HTML & CSS
 **Before:**
 * Css: 62ms
 
 **After:**
 * Css: 61ms
 
-**CSS to Critical CSS**
+### CSS to Critical CSS
 **Before:**
 * Css: 61ms
 
 **After:**
 * Css: 28ms
 
-**JS load from Head to Body**
+### JS load from Head to Body
 **Before:**
 * JS: 39ms
 * jQuery: 1.29s
@@ -81,7 +81,7 @@ I'm testing the perfromance of this site, the testresults are below.
 * JS: 57ms
 * jQuery: 7.5s
 
-**Remove jQuery & rewrote to Vanilla JS**
+### Remove jQuery & rewrote to Vanilla JS
 **Before:**
 * JS: 39ms
 * jQuery: 1.29s
@@ -90,7 +90,7 @@ I'm testing the perfromance of this site, the testresults are below.
 * JS: 37ms
 * jQuery: 0s
 
-**Added Picture Element for Header**
+### Added Picture Element for Header
 **Before:**
 * Header Image: 14.56s
 * Size: 1.9mb
@@ -99,14 +99,14 @@ I'm testing the perfromance of this site, the testresults are below.
 * Header Image: 4.15s
 * Size: 262kb
 
-**Removed fronts sizes from request**
+### Removed fronts sizes from request
 **Before:**
 * Raleway: 33ms
 
 **After:**
 * Raleway: 31ms
 
-**Added One Page App**
+### Added One Page App
 **Before:**
 * Routie: 0ms;
 * JS: 37ms
