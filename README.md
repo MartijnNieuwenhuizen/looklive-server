@@ -49,55 +49,71 @@ The API returns JSON (for now).
 
 
 
-
-
-
-
 # Performance
-## Overview page
-**After Fork**
-* DOM Content Loaded: 1.47s
-* First Paint: 1.73s
-* Load Event: 2.42s
+I'm testing the perfromance of this site, the testresults are below.
 
-**Styling Nav With Flexbox & BAM**
-* DOM Content Loaded: 1.51s
-* First Paint: 1.67s
-* Load Event: 1.87s
+**Settings:**
+* Throtteling: 4G
+* Cache: Disabled
+* Browser: Chrome
+* Window: Private Mode
 
-**Compiling header images with Gulp**
-* DOM Content Loaded: 1.51s
-* First Paint: 1.67s
-* Load Event: 1.87s
+**Changed HTML & CSS**
+**Before:**
+* Css: 62ms
 
-**Resized Header Image + Picture Element**
-* First Paint: 1.07s
-* DOM Content Loaded: 1.36s
-* Load Event: 1.95s
+**After:**
+* Css: 61ms
 
-## Detail page
-**After Fork**
-* DOM Content Loaded: 1.22s
-* First Paint: 1.34s
-* Load Event: 1.69s
+**CSS to Critical CSS**
+**Before:**
+* Css: 61ms
 
-**With Flexbox**
-* First Paint: 1.02s
-* DOM Content Loaded: 1.12s
-* Load Event: 1.18s
+**After:**
+* Css: 28ms
 
-**After Positions Relative Fix**
-* First Paint: 0.856ss
-* DOM Content Loaded: 0.977s
-* Load Event: 1.05s
+**JS load from Head to Body**
+**Before:**
+* JS: 39ms
+* jQuery: 1.29s
 
-**Script with jQuery**
-* app.js: time = 80ms
-* jQuery.js: time = 78ms
+**After:**
+* JS: 57ms
+* jQuery: 7.5s
 
-**Script with Vanilla JS**
-* app.js: time = 70ms
-* jQuery.js: time = 0ms
+**Remove jQuery & rewrote to Vanilla JS**
+**Before:**
+* JS: 39ms
+* jQuery: 1.29s
+
+**After:**
+* JS: 37ms
+* jQuery: 0s
+
+**Added Picture Element for Header**
+**Before:**
+* Header Image: 14.56s
+* Size: 1.9mb
+
+**After:**
+* Header Image: 4.15s
+* Size: 262kb
+
+**Removed fronts sizes from request**
+**Before:**
+* Raleway: 33ms
+
+**After:**
+* Raleway: 31ms
+
+**Added One Page App**
+**Before:**
+* Routie: 0ms;
+* JS: 37ms
+
+**After:**
+* Routie: 61ms;
+* JS: 54ms
 
 # Make a One Page Application
 ## Explenation
