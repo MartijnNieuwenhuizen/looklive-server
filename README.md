@@ -115,6 +115,12 @@ I'm testing the perfromance of this site, the testresults are below.
 * Routie: 61ms;
 * JS: 54ms
 
+### Serverside Rendering
+(https://github.com/MartijnNieuwenhuizen/looklive-server/blob/master/public/images/serverside.png "serverside Rendering piechart")
+
+### Clientside Rendering
+(https://github.com/MartijnNieuwenhuizen/looklive-server/blob/master/public/images/clientside.png "slientside Rendering piechart")
+
 # Make a One Page Application
 ## Explenation
 If JS is running -> change the window.location.hash form '' to '/#feed' and JS is taking over.
