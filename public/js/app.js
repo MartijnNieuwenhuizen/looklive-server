@@ -2,7 +2,9 @@
 (function() {	
 	'use strict';
 
-	var mainInner = document.querySelector('main');
+	var HTMLElements = {
+		main: document.querySelector('main')
+	};
 	
 	var app = {
 		launcher: function() {
@@ -71,9 +73,10 @@
 			.catch(function() {
 
 				var error = {
-					title: "Sorry, Cannot connect"
+					title: "Error",
+					message: "Sorry, We cannot get the right content for you, please try again later"
 				};
-				template.display(error);
+				template.render(error);
 
 			});
 
@@ -84,7 +87,30 @@
 		display: function(data) {
 
 			var _data = data;
-			mainInner.innerHTML = _data;
+			HTMLElements.main = _data;
+
+		},
+		render: function(data, htmlTemplate) {
+			
+			var _data = data;
+			var template = htmlTemplate;
+
+			var htmlHeader = document.createElement('header');
+			var htmlTitle = document.createElement('h1');
+			var htmlMessage = document.createElement('p');
+
+			if ( _data.title ) {
+				htmlTitle.innerHTML = _data.title;
+			}
+			if ( _data.message ) {
+				htmlMessage.innerHTML = _data.message;
+			}
+
+			htmlHeader.appendChild(htmlTitle);
+			htmlHeader.appendChild(htmlMessage);
+
+			HTMLElements.main.innerHTML = ""; // For development purposes
+			HTMLElements.main.appendChild(htmlHeader);  
 
 		}
 	}
@@ -120,9 +146,6 @@
 					var data = response;
 					template.display(data);
 					shopSection.show();
-
-
-
 
 				})
 				.catch(function() {
@@ -166,10 +189,8 @@
 
 						this.classList.add('product-indicator-active');
 
-
 						var p = document.querySelector(".product[data-uuid='" + id + "']");
 						p.classList.add('product-active');
-
 
 					}
 
@@ -178,43 +199,6 @@
 
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	app.launcher();
 
