@@ -112,7 +112,6 @@
 		show: function(id) {
 			
 			var _id = id;
-			// var url = '/api/product/' + _id; 
 			var url = '/api/appearance/' + _id;
 
 			api.call(url)
