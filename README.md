@@ -138,12 +138,14 @@ If JS is running -> change the window.location.hash form '' to '/#feed' and JS i
 * Loading time: 12.1s
 * Amount of requests: 171
 * Size: 5.6MB
+
 ![piechart without pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/without-paging.png "piechart without pagin")
 
 **with paging**
 * Loading time: 1.97s
 * Amount of requests: 33
 * Size: 930kb
+
 ![piechart with pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/with-paging.png "piechart with pagin")
 
 
