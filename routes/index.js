@@ -10,9 +10,9 @@ router.get('/', function(req, res, next) {
         }
 
         var items = JSON.parse(data);
-        var pagingItems = items.slice(0, 8);
+        var pagingItems = items.slice(0, 10); // fill the items
 
-        res.render('feed', { title: 'Feed', items: null });
+        res.render('feed', { title: 'Feed', items: pagingItems });
     })
 });
 
