@@ -18,9 +18,14 @@
 		watch: function() {
 
 			routie({
-			    'feed': function() {
+				'feed': function(id) {
 
-			    	feed.show();
+			    	window.location.hash = 'feed/first=0&last=10' // if the user links to the feed, get the first 10 items.
+
+			    },
+			    'feed/:id': function(id) {
+
+			    	feed.show(id);
 
 			    },
 			    'detail/:id': function(id) {
@@ -58,9 +63,9 @@
 	};
 
 	var feed = {
-		show: function() {
+		show: function(id) {
 
-			var url = '/api/feed';
+			var url = '/api/feed?' + id;
 
 			api.call(url)
 				.then(function(response) {
@@ -68,6 +73,8 @@
 				var data = response;
 				template.display(data);
 				detailPage.getAllLinks();
+				feed.loadMore(id);
+
 
 			})
 			.catch(function() {
@@ -79,6 +86,34 @@
 				template.render(error);
 
 			});
+
+		},
+		loadMore: function(id) {
+
+			var query = id;
+			var strFirst = "first="
+			var strLast = "last=";
+			var strSlice = "&";
+			var first = query.lastIndexOf(strFirst);
+			var slicePos = query.lastIndexOf(strSlice);
+			var last = query.lastIndexOf(strLast);
+
+			var firstItems = query.slice(first + strFirst.length, slicePos);
+			var lastItems = query.slice(last + strLast.length);
+
+			// HTMLElements.loadMoreButton.addEventListener('click', loadMore, false);
+			var loadMoreButton = document.querySelector('.load-more');
+			// console.log(loadMoreButton);
+			loadMoreButton.onclick = function() {
+
+				var newFirstItems = Number(firstItems) + 10;
+				var newLastItems = Number(lastItems) + 10;
+
+				window.location.hash = 'feed/first=' + newFirstItems + '&last=' + newLastItems;
+
+				event.preventDefault();
+
+			}
 
 		}
 	}

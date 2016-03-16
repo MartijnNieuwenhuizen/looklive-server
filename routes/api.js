@@ -9,7 +9,14 @@ router.get('/feed', function(req, res, next) {
             next();
         }
 
-        res.render('feed', { title: 'Feed', items: JSON.parse(data), layout: false});
+        var urlQuery = req.query; // get the Query
+        var firstItem = urlQuery.first; // get the first item in the Query
+        var lastItem = urlQuery.last; // get the last item in the Query
+
+        var items = JSON.parse(data);
+        var pagingItems = items.slice(firstItem, lastItem); // fill the items
+
+        res.render('feed', { title: 'Feed', items: pagingItems, layout: false});
     })
 });
 

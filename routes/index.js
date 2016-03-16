@@ -9,7 +9,10 @@ router.get('/', function(req, res, next) {
             next();
         }
 
-        res.render('feed', { title: 'Feed', items: JSON.parse(data) });
+        var items = JSON.parse(data);
+        var pagingItems = items.slice(0, 8);
+
+        res.render('feed', { title: 'Feed', items: null });
     })
 });
 

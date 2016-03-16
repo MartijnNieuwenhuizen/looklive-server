@@ -5,4 +5,7 @@ body {
 main {
 	margin: 0 auto;
 	overflow: hidden;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
 }
