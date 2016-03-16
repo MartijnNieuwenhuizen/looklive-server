@@ -1,0 +1,15 @@
+.load-more {
+	background: none;
+	border: 1px solid #383838;
+	color: #383838;
+	padding: 4.8em 3em;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-bottom: 6em;
+
+	&:hover,
+	&:focus {
+		border: 1px solid #779ECB;
+		color: #779ECB;
+	}
+}

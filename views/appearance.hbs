@@ -1,6 +1,9 @@
-<div class="appearance" data-id="{{ item.id }}">
-    <div class="appearance-left">
-        <img src="{{ item.image.url }}">
+<div role="main" class="feedlist-detail" data-id="{{ item.id }}">
+
+    <section class="image-section">
+        <figure class="feedlist-detail-img">
+            <img src="{{ item.image.url }}">
+        </figure>
         {{#each item.product_occurrences}}
             <div class="product-indicator" style="top: {{position.y}}%; left: {{position.x}}%;" data-uuid="{{product.id}}"></div>
         {{/each}}
@@ -39,6 +42,6 @@
                     </div>
                 {{/each}}
             </div>
-        </div>
-    </div>
+        </section>
+    </section>
 </div>

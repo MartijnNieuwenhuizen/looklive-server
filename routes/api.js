@@ -3,11 +3,39 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/feed', function(req, res, next) {
-    sendFile('feed.json', res);
+    fs.readFile('resources/feed.json', 'utf8', function(err, data) {
+        if(err) {
+            res.status(404);
+            next();
+        }
+
+        var urlQuery = req.query; // get the Query
+        var amount = urlQuery.amount; // get the amount in the Query
+
+        var items = JSON.parse(data);
+        var pagingItems = items.slice(0, amount); // fill the items
+
+        res.render('feed', { title: 'Feed', items: pagingItems, layout: false});
+    })
 });
 
 router.get('/appearance/:uuid', function(req, res, next) {
-    sendFile('appearance/'+req.params.uuid+'.json', res);
+    fs.readFile('resources/appearance/'+req.params.uuid+'.json', 'utf8', function(err, data) {
+        if(err) {
+            res.status(404);
+            next();
+        }
+
+        var item = JSON.parse(data);
+        var products = [];
+
+        item.product_occurrences.forEach(function(occurrence) {
+            var product = fs.readFileSync('resources/product/'+occurrence.product.id+'.json', 'utf8');
+            products.push(JSON.parse(product));
+        });
+
+        res.render('appearance', { title: item.title, item: item , products: products, layout: false});
+    })
 });
 
 router.get('/product/:uuid', function(req, res, next) {
