@@ -87,7 +87,7 @@
 		display: function(data) {
 
 			var _data = data;
-			HTMLElements.main = _data;
+			HTMLElements.main.innerHTML = _data;
 
 		},
 		render: function(data, htmlTemplate) {
