@@ -20,7 +20,7 @@
 			routie({
 				'feed': function(id) {
 
-			    	window.location.hash = 'feed/first=0&last=10' // if the user links to the feed, get the first 10 items.
+			    	window.location.hash = 'feed/amount=10'
 
 			    },
 			    'feed/:id': function(id) {
@@ -91,25 +91,14 @@
 		loadMore: function(id) {
 
 			var query = id;
-			var strFirst = "first="
-			var strLast = "last=";
-			var strSlice = "&";
-			var first = query.lastIndexOf(strFirst);
-			var slicePos = query.lastIndexOf(strSlice);
-			var last = query.lastIndexOf(strLast);
+			var amount = query.slice(7);
 
-			var firstItems = query.slice(first + strFirst.length, slicePos);
-			var lastItems = query.slice(last + strLast.length);
-
-			// HTMLElements.loadMoreButton.addEventListener('click', loadMore, false);
 			var loadMoreButton = document.querySelector('.load-more');
-			// console.log(loadMoreButton);
 			loadMoreButton.onclick = function() {
 
-				var newFirstItems = Number(firstItems) + 10;
-				var newLastItems = Number(lastItems) + 10;
+				var newAmount = Number(amount) + 10;
 
-				window.location.hash = 'feed/first=' + newFirstItems + '&last=' + newLastItems;
+				window.location.hash = 'feed/amount=' + newAmount;
 
 				event.preventDefault();
 
