@@ -120,7 +120,7 @@ I'm testing the perfromance of this site, the testresults are below.
 !["serverside Rendering piechart"](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/serverside.png "serverside Rendering piechart")
 
 **Clientside Rendering**
-![slientside Rendering piechart](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/clientside.png "slientside Rendering piechart")
+![clientside Rendering piechart](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/clientside.png "slientside Rendering piechart")
 
 ### Icons
 **Load SVG's**
@@ -132,3 +132,30 @@ I'm testing the perfromance of this site, the testresults are below.
 # Make a One Page Application
 ## Explenation
 If JS is running -> change the window.location.hash form '' to '/#feed' and JS is taking over.
+
+## Paging / Load More
+**without paging**
+* Loading time: 12.1s
+* Amount of requests: 171
+* Size: 5.6MB
+![piechart without pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/without-paging.png "piechart without pagin")
+
+**with paging**
+* Loading time: 1.97s
+* Amount of requests: 33
+* Size: 930kb
+![piechart with pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/with-paging.png "piechart with pagin")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
