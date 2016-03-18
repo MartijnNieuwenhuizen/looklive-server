@@ -164,10 +164,10 @@ You can visit the LookLive site at [37.139.17.184](http://37.139.17.184:3000/#fe
 
 # Progressive Web App (PWA’s)
 ## What is a Progressive Web App
-A PWA is an Application that’s build with HTML/JS/CSS but can also run offline with the use of **service workers**. The content is dynamicly loaded and because of the new cache API it wil load instantly on a repeat visit.
-Because the core is still HTML, the reach is enormous for you don’t have to build a iOS, Android, WindowsPhone version. You can just usa a language everybody understands.
+A PWA is an Application that’s build with HTML/JS/CSS but can also run offline with the use of **service workers**. The content is dynamically loaded and because of the new cache API, it will load instantly on a repeat visit.
+Because the core is still HTML, the reach is enormous for you don’t have to build an iOS, Android, WindowsPhone version. You can just use a language everybody understands.
 
-The Advantage over an “Web App” is the nativa app like usage. This means (with a little bit of JavaScript), you can ‘download’ the web app and use it as a normal app on your phone. The avarige user won’t sense the difference.
+The Advantage over a “Web App” is the native app like usage. This means (with a little bit of JavaScript), you can ‘download’ the web app and use it as a normal app on your phone. The average user won’t sense the difference.
 
 De service workers die in de PWA’s worden gebruikt zijn bedoeld voor specifieke doeleindes. Ze kunnen de DOM zelf niet manipuleren en maken gebruik van de JavaScript API’s. Hiermee kunnen de service workers tussen requests gaan zitten of een PushMessage geven. Alles gebeurd dus in de achtergrond. Dat zijn drie specifieke eigenschappen van de service workers.
 
@@ -176,12 +176,12 @@ The PWA consists of two difference things.
 1. The Application Shell
 2. Dynamic Content
 
-The application shell is the part of the HTML that is alway’s there. It depents on the project but in most cases this is the header, footer and the body. But not the main content. The main content is loaded dymamicly because it can be different every time you open the app. 
+The application shell is the part of the HTML that is alway’s there. It depends on the project but in most cases this is the header, footer and the body. But not the main content. The main content is loaded dynamically because it can be different every time you open the app. 
 
-The application shell is cached after the first visit. This means that if you fisit the app for the second time, the Loading time off the app is cut in half. After the shell is loaded, the content is placed in the container. 
-Because the application shell is loaded almost instantly, the user get’s the feeling that the app is verry fast, even if it takes a little while for the content to load (I dont mean 10second but more like 2).
+The application shell is cached after the first visit. This means that if you visit the app for the second time, the Loading time of the app is cut in half. After the shell is loaded, the content is placed in the container. 
+Because the application shell is loaded almost instantly, the user get’s the feeling that the app is very fast, even if it takes a little while for the content to load (I don't mean 10second but more like 2).
 
-**Note:** Even with a app like this, that run’s on JS, you can use Progressive Enhancement. Your app won’t be as fast, because you can’t use the Cache API, but it will still work!
+**Note:** Even with an app like this, that run’s on JS, you can use Progressive Enhancement. Your app won’t be as fast because you can’t use the Cache API, but it will still work!
 So the Enhancement here is Speed, not the entire app.
 
 I’ve found a lot of information in this article [https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q](https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q) and recommend you to read it!
