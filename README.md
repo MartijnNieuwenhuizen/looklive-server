@@ -169,7 +169,7 @@ Because the core is still HTML, the reach is enormous for you don’t have to bu
 
 The Advantage over a “Web App” is the native app like usage. This means (with a little bit of JavaScript), you can ‘download’ the web app and use it as a normal app on your phone. The average user won’t sense the difference.
 
-De service workers die in de PWA’s worden gebruikt zijn bedoeld voor specifieke doeleindes. Ze kunnen de DOM zelf niet manipuleren en maken gebruik van de JavaScript API’s. Hiermee kunnen de service workers tussen requests gaan zitten of een PushMessage geven. Alles gebeurd dus in de achtergrond. Dat zijn drie specifieke eigenschappen van de service workers.
+The service workers in PWA's are used for specific purposes. They can't manipulate the DOM itself but use JavaScript API's to interfere. This means they can interfere with a request to the server and send push messages. All of this is running in the background.
 
 ## Parts
 The PWA consists of two difference things. 
