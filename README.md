@@ -145,6 +145,19 @@ If JS is running -> change the window.location.hash form '' to '/#feed' and JS i
 * Loading time: 1.97s
 * Amount of requests: 33
 * Size: 930kb
-<<<<<<< HEAD
 
 ![piechart with pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/with-paging.png "piechart with pagin")
+
+
+# The Serviceworker
+The Surficeworker is used to cashe the following items with the new Cache API:
+* The CSS
+* The JavaScript
+* The HTML of the layout (header) and the ten first items in the feed
+* The pictures of the ten first items in the feed
+
+The first three things on the list are cached if the serviceworker is installed.
+The pictures are send to the serviceworken as a string in a message. After the serviceworker received them the are decoded and cached.
+
+# Online Usage
+You can visit the LookLive site at [37.139.17.184](http://37.139.17.184:3000/#feed/) OR if the DNS configuration is complete at [looklive.whereilikemycoffee.com](http://looklive.whereilikemycoffee.com/#feed)
