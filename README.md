@@ -98,6 +98,57 @@ The only image we can acces is the header Image. As described before the size ca
 
 # Optimize WebFonts
 
+### The Smashing Magazine Case
+Smashing Magazine did a casestudy about the improvements of there own website which went from *super bad* to *insanely good*! One of the improvements was to handle the WebFonts. 
+They use the *Proxima Nova Regular* font and didn't want anyone to see the FOUT or load the font everytime they loaded the page. They sey that HTTP cache is quite unreliable and didn't want to get a blocking request for the font.
 
+**Solution - Local Storage**
+They grabed the WOFF files off the fonts and set them in local storage. Then they set a Cookie to check if the font is in local storage. If the cookie is thair, get the font form local storage.
 
+### Implementation
+**NOTE:** I used [this tutorial](http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage) as inspiration for this implementation.
+So what did I do?
 
+* 1 Use the [Node Dependency](https://www.npmjs.com/package/font-store) to get the woff file as json.
+* 2 Get the font from your filesystem with an API Call and set in local storage
+
+```
+	var key = 'fonts';
+		
+		var request = new XMLHttpRequest();
+    var	response;
+	
+	request.open('GET', '../font/fonts.e76d5d86b650cf0dc199b94edba280e0.woff.json', true);
+	request.onload = function() {
+
+			response = JSON.parse(this.response);
+			font.insertFont(response.value);
+			window.localStorage.setItem(key, this.response);
+
+	};
+
+    request.send();
+```
+
+* 3 Get font form local storage
+
+```
+var cache = window.localStorage.getItem(key);
+```
+
+* 4 Insert font into head
+
+```
+var style = document.createElement('style');
+style.innerHTML = value;
+document.head.appendChild(style);
+```
+### Improvement
+On a 50kb/s connection loading the font takes *1.26s* and contains *823b*.
+If you get the font form local storage, it loades almoast instantly, you don't even see the FOUT.
+
+### Hassle
+There are a view things you need to considder: 
+
+* Ethics, you just stole a font from someone, and they don't know how ofter thair font is used. 
+* Support, every browser accepts Local Storage, accept Opera Mini. If it's oke that a user of Opera doesn't see the web font, your clear

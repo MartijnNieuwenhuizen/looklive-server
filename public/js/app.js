@@ -9,6 +9,7 @@
 	var app = {
 		launcher: function() {
 
+			font.check();
 			router.watch();
 
 		}
@@ -221,6 +222,60 @@
 				});	
 			}
 
+		}
+	};
+	// Original code by crocodillon.com -> http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage
+	var font = {
+		check: function() {
+			// check if your browser supports the nessasary JS
+			if ( ('querySelector' in document) && ('localStorage' in window)  && ('addEventListener' in window) ) {
+				
+				var key = 'fonts';
+
+				var cache = window.localStorage.getItem(key);
+
+				if (cache) {
+					font.getFont(cache, key);
+				}
+				if (!cache) {
+					window.addEventListener('load', font.setFont, false);
+				}
+
+			}
+		},
+		getFont: function(cache, key) {
+
+			var code = 'e90ba95faca6e63b5516ed839f4514ec';
+			var key = 'fonts';
+	    	var _cache = JSON.parse(cache);
+
+	      	font.insertFont(_cache.value);
+
+		},
+		setFont: function() {
+			
+			var key = 'fonts';
+	  		
+	  		var request = new XMLHttpRequest();
+	        var	response;
+	    	
+	    	request.open('GET', '../font/fonts.e76d5d86b650cf0dc199b94edba280e0.woff.json', true);
+	    	request.onload = function() {
+
+      			response = JSON.parse(this.response);
+      			font.insertFont(response.value);
+      			window.localStorage.setItem(key, this.response);
+
+	    	};
+
+		    request.send();
+
+		},
+		insertFont: function(value) {
+			
+		  	var style = document.createElement('style');
+		  	style.innerHTML = value;
+		  	document.head.appendChild(style);
 		}
 	}
 
