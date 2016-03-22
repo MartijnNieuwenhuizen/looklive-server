@@ -1,139 +1,70 @@
-# LookLive server
+# Task Managers
+About 6 months ago I started using Taskmanagers. After a month working with Gulp and Grunt I choosed for Gulp because of the speed. If I saved the homepage a site, Grunt was taking 12s to compile where Gulp was taking 1.32s to compile. In this case Gulp was also handeling more than Grunt. 
 
-The project you're looking at is an [express.js](http://expressjs.com) project. You'll use it to get set up a development environment where you're
-going to optimize the way this project works. In it's current state, the css is messy, the rendering isn't modern and
-overall the product is boring and not efficient. It's up to you to fix this and improve it.
+## Performance 
+Because I already build my own [Gulp flow](https://github.com/MartijnNieuwenhuizen/cobalt), I won't be talking about why, but I will research wich plugins I use/can use to enhance the performance.
+The plugins i use at the moment are:
 
-## Getting started
+* Gulp
+* Clean
+* Imagemin
+* Uglify
+* Rename
+* Minifyhtml
+* Autoprefixer
+* Sass
+* BrowserSync
+* Plumber
+* Reload
+* Notify
+* Browserify
 
-### Step 1 - clone the repo
-Github provides some instructions for this and we're assuming that you know how to clone this repo. If you're not sure,
-don't hesitate to raise your hand now and ask.
+The plugins *Imagemin*, *Uglify*, *Browserify* and *Minifyhtml* already enhance the performance because the combine, minify and reduce the files/filesize. 
+Here are some (for me) new plugins and a little conclusion
 
-### Step 2 - install dependencies
-In order to run the server you'll need to install express.js and it's dependencies. In order to do this, open up a 
-terminal and navigate to your project folder (for example `cd ~/Projects/looklive-server`). When you've done this, type
-this command to run the instal:
+**gulp-svgmin**
+Reduces the code of a SVG, but if you optimize every svg by hand (which you should) its not nessesary
 
-```
-$ npm install
-```
+**gulp-sprite**
+Generates a spreatsheet. If you use that, it's a good tool, but with the new HTTP2, it's outdated.
 
-That should get you setup.
+**gulp-webp**
+Convertes your images to a WebP file. This, as Google say's makes an image 26% smaller and with that, safes 30% of yout bandwidth use. 
+I think this is a good plugin and will install it in my own pipeline. 
+The downside could be that you will need a <picture> for every image, but I think it's worth it.
 
-### Step 3 - running the server
-To run the server, stay at the 'root' of your project folder and type:
+**gulp-concat**
+Combines all the js files into one file. This means less HTTP requests, so yes! But if you use *Browserify* (I do), this isn't nessasary becuase Browserify combines all the modules in one single file. 
 
-```
-$ npm start
-```
-Run in a new Terminal window (in the project root folder)
+**Critical CSS & Gzip**
+Critical CSS works! I implemented this in the [LookLive server](https://github.com/MartijnNieuwenhuizen/looklive-server/tree/student/martijn) and the css went from *61ms* to *28ms*. And this is a relative small site!
+You could use the Gulp Plugin *grunt-critical* or set your Sass output to two files (this means more code and is less maintainable). I will also Install this Plugin to my pipeline
 
-```
-$ gulp server
-```
+Gzipping is handled on the server. The server Gzips your CSS and the sends it accros the web as a zip. Your browser will unzip it and server the css. 
+So what about performance? [css-trics](https://css-tricks.com/the-difference-between-minification-and-gzipping/) has this numbers:
 
-This will automatically open a new window at [http://localhost:3001](http://localhost:3001) and refresh after you changed the CSS (later also with HTML and JS).
+* Original CSS file: 147kb
+* Minified: 123kb
+* Gzipped: 22kb
+* Both: 20kb
 
-## The api
+You could also use **gulp-gzip**, whith this you can gzip your own files, but why not change the settings on your server!?
 
-This project comes with a simple API. All you need to know for now is that there's three endpoints:
+So YES!, you should use Critical css and Gzip your css on the server.
 
-* `/api/feed/` <- returns a feed of appearances
-* `/api/appearance/:uuid` <- returns a single appearance, more detailed than in the feed. Replace `:uuid` with the 
-appearance id.
-* `/api/product/:uuid` <- returns a single product, including similar and bargain products. Replace `:uuid` with the 
-product id.
+# Optimize HTTP Request
+In the first stage of the LookLive app there are 175 requests, now there are 35. This is done by limiting the requests form 100 to 10 items in the feed. 
 
-The API returns JSON (for now).
+This are the calls:
+* 1 stylesheets
+* 1 font
+* 2 script (one of them is routie)
+* 1 logo
+* 1 API call
+* 21 images
+* 7 Browserify requests (Gulp Plugin that's not running on the server)
 
-
-
-# Performance
-I'm testing the perfromance of this site, the testresults are below.
-
-**Settings:**
-* Throtteling: 4G
-* Cache: Disabled
-* Browser: Chrome
-* Window: Private Mode
-
-### Changed HTML & CSS
-**Before:**
-* Css: 62ms
-
-**After:**
-* Css: 61ms
-
-### CSS to Critical CSS
-**Before:**
-* Css: 61ms
-
-**After:**
-* Css: 28ms
-
-### JS load from Head to Body
-**Before:**
-* JS: 39ms
-* jQuery: 1.29s
-
-**After:**
-* JS: 57ms
-* jQuery: 7.5s
-
-### Remove jQuery & rewrote to Vanilla JS
-**Before:**
-* JS: 39ms
-* jQuery: 1.29s
-
-**After:**
-* JS: 37ms
-* jQuery: 0s
-
-### Added Picture Element for Header
-**Before:**
-* Header Image: 14.56s
-* Size: 1.9mb
-
-**After:**
-* Header Image: 4.15s
-* Size: 262kb
-
-### Removed fronts sizes from request
-**Before:**
-* Raleway: 33ms
-
-**After:**
-* Raleway: 31ms
-
-### Added One Page App
-**Before:**
-* Routie: 0ms;
-* JS: 37ms
-
-**After:**
-* Routie: 61ms;
-* JS: 54ms
-
-### Rendering
-**Serverside Rendering**
-!["serverside Rendering piechart"](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/serverside.png "serverside Rendering piechart")
-
-**Clientside Rendering**
-![clientside Rendering piechart](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/clientside.png "slientside Rendering piechart")
-
-### Icons
-**Load SVG's**
-![load svg extern](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/extern.png "load svg extern")
-
-**Inline SVG**
-![load svg inline](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/inline.png "load svg inline")
-
-# Make a One Page Application
-## Explenation
-If JS is running -> change the window.location.hash form '' to '/#feed' and JS is taking over.
-
-## Paging / Load More
+### improvements
 **without paging**
 * Loading time: 12.1s
 * Amount of requests: 171
@@ -148,40 +79,25 @@ If JS is running -> change the window.location.hash form '' to '/#feed' and JS i
 
 ![piechart with pagin](https://github.com/MartijnNieuwenhuizen/looklive-server/blob/student/martijn/public/images/with-paging.png "piechart with pagin")
 
+### More possible improvements
+* Concatinate the 2 scripts
+* Change the logo to an SVG
+* load less feed items but that will screw up the app itself
 
-# The Serviceworker
-The Surficeworker is used to cashe the following items with the new Cache API:
-* The CSS
-* The JavaScript
-* The HTML of the layout (header) and the ten first items in the feed
-* The pictures of the ten first items in the feed
 
-The first three things on the list are cached if the serviceworker is installed.
-The pictures are send to the serviceworken as a string in a message. After the serviceworker received them the are decoded and cached.
+# Optimize Images
+The only image we can acces is the header Image. As described before the size can bu cut form 2mb to 262kb (on a 1280px screen). After that, Gulp Imagemin also removed a little bit. This is an automatical Gulp task which removes unnecesary data form every Image
 
-# Online Usage
-You can visit the LookLive site at [37.139.17.184](http://37.139.17.184:3000/#feed/) OR if the DNS configuration is complete at [looklive.whereilikemycoffee.com](http://looklive.whereilikemycoffee.com/#feed)
+**Before:**
+* Header Image: 14.56s
+* Size: 1.9mb
 
-# Progressive Web App (PWA’s)
-## What is a Progressive Web App
-A PWA is an Application that’s build with HTML/JS/CSS but can also run offline with the use of **service workers**. The content is dynamically loaded and because of the new cache API, it will load instantly on a repeat visit.
-Because the core is still HTML, the reach is enormous for you don’t have to build an iOS, Android, WindowsPhone version. You can just use a language everybody understands.
+**After:**
+* Header Image: 4.15s
+* Size: 262kb
 
-The Advantage over a “Web App” is the native app like usage. This means (with a little bit of JavaScript), you can ‘download’ the web app and use it as a normal app on your phone. The average user won’t sense the difference.
+# Optimize WebFonts
 
-The service workers in PWA's are used for specific purposes. They can't manipulate the DOM itself but use JavaScript API's to interfere. This means they can interfere with a request to the server and send push messages. All of this is running in the background.
 
-## Parts
-The PWA consists of two difference things. 
-1. The Application Shell
-2. Dynamic Content
 
-The application shell is the part of the HTML that is alway’s there. It depends on the project but in most cases this is the header, footer and the body. But not the main content. The main content is loaded dynamically because it can be different every time you open the app. 
 
-The application shell is cached after the first visit. This means that if you visit the app for the second time, the Loading time of the app is cut in half. After the shell is loaded, the content is placed in the container. 
-Because the application shell is loaded almost instantly, the user get’s the feeling that the app is very fast, even if it takes a little while for the content to load (I don't mean 10second but more like 2).
-
-**Note:** Even with an app like this, that run’s on JS, you can use Progressive Enhancement. Your app won’t be as fast because you can’t use the Cache API, but it will still work!
-So the Enhancement here is Speed, not the entire app.
-
-I’ve found a lot of information in this article [https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q](https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q) and recommend you to read it!
