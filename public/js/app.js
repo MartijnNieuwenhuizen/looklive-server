@@ -10,6 +10,7 @@
 		launcher: function() {
 
 			router.watch();
+			sw.start();
 
 		}
 	};
@@ -197,6 +198,39 @@
 				});	
 			}
 
+		}
+	};
+	var sw = {
+		start: function() {
+			if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js', { scope: './' })
+                .then(function(reg) {
+                    var images = document.querySelectorAll('main ul li:nth-child(-n+11) img');
+                    var imageArray = [];
+                    Array.prototype.forEach.call(images, function(image) {
+                       
+                        imageArray.push(image.src);
+
+                    });
+                    sw.sendMessage(imageArray);
+                    
+                    function sendMessage(message) {
+                        if (navigator.serviceWorker.controller) {
+                           var messageStr = JSON.stringify(message);
+                           navigator.serviceWorker.controller.postMessage(messageStr);
+                        }
+                    }
+                })
+                .catch(function(err) {
+                    console.error("Error registering SW", err);
+                });
+           } 
+		},
+		sendMessage: function(message) {
+		    if (navigator.serviceWorker.controller) {
+		       var messageStr = JSON.stringify(message);
+		       navigator.serviceWorker.controller.postMessage(messageStr);
+		    }
 		}
 	}
 
