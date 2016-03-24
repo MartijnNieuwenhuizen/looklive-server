@@ -96,6 +96,15 @@ The only image we can access is the header Image. As described before the size c
 * Header Image: 4.15s
 * Size: 262kb
 
+### Feed Images
+To be shure the servers sends the smallest image, because bigger isn't needed, I changed
+```
+{{ image.url }}
+TO
+{{ image.sizes.s.url }}
+```
+The performance isn't approving but thair's a guarantee for the small image.
+
 # Optimize WebFonts
 
 ### The Smashing Magazine Case

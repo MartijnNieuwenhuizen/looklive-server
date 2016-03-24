@@ -2,7 +2,8 @@
     {{#each items}}
         
         <li class="feedlist__item" data-uuid="{{id}}">
-	        <img class="feedlist__item--img" src="{{ image.url }}">
+			<img class="feedlist__item--img" src="{{ image.sizes.s.url }}" alt="picture of {{title}}">
+
 	        <p class="avatar-name"><img class="avatar" src="{{ subject.avatar.url }}"> {{ subject.name }}</p>
 	        <a href="appearance/{{id}}" data-id="{{id}}" class="feedlist__item--title"><h1> {{title}} </h1></a>
         </li>
