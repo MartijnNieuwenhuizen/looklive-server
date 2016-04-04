@@ -185,3 +185,20 @@ Because the application shell is loaded almost instantly, the user get’s the f
 So the Enhancement here is Speed, not the entire app.
 
 I’ve found a lot of information in this article [https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q](https://medium.com/google-developers/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73#.uatbxq31q) and recommend you to read it!
+
+# Conclusion
+Reducing the amount and size of requests is the biggest improvement I could do. So how to do that? 
+Begin to check what your biggers/longest requests are. Start with one and work your way down. 
+In this project, the amount of Feedlist data is the biggest hickup. So paging or a load more button reduces the load time significantly. After that, compressing the images (especially the header-image) reduces the load time even further. 
+After this, focus on smaller changes. The biggest small change I made was loading the font from local storage instead of a request to the server. The technique is described above.
+
+**The Final result:**
+*From*
+* Loading time: 12.1s
+* Amount of requests: 171
+* Size: 5.6MB 
+
+*To*
+* Loading time: 1.84s
+* Amount of requests: 28
+* Size: 901KB 
