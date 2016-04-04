@@ -1,4 +1,3 @@
-// Change product section on detail page
 (function() {	
 	'use strict';
 
@@ -245,7 +244,6 @@
 		},
 		getFont: function(cache, key) {
 
-			var code = 'e90ba95faca6e63b5516ed839f4514ec';
 			var key = 'fonts';
 	    	var _cache = JSON.parse(cache);
 

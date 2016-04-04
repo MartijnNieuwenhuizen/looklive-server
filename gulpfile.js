@@ -17,14 +17,6 @@ var reload = browserSync.reload;
 var notify = require('gulp-notify');
 var browserify = require('gulp-browserify');
 
-// Test run for gulp
-// gulp.task('clean', function() {
-
-// 	return gulp.src('config.base', {read: false})
-// 	.pipe(clean())
-
-// });
-
 // Compress all images
 gulp.task('images', function() {
 
@@ -70,34 +62,6 @@ gulp.task('js', function() {
 		.pipe(gulp.dest(config.js.folder))
 
 });
-
-// gulp.task('browserify', function() {
-    	
-//    	return gulp.src(config.js.src)
-//    		.pipe(plumber({
-//              errorHandler: config.error
-//         }))
-//     	.pipe(browserify({
-//       	insertGlobals : false
-//     	}))
-//         .pipe(uglify())
-//         .pipe(rename(config.js.destFile))
-//         .pipe(gulp.dest(config.js.folder));
-
-// });
-
-// Add the HTML MINIFY AFTER THE TEMPLATES ARE RENDERED
-// gulp.task('html', function() {
-	
-// 	// Fileinclude
-// 	return gulp.src(config.html.src)
-// 		.pipe(plumber({
-// 		    errorHandler: config.error
-// 		}))
-// 	    .pipe(minifyhtml())
-// 	    .pipe(gulp.dest(config.base))
-
-// });
 
 // Compress Css
 gulp.task('sass', function() {
@@ -148,10 +112,8 @@ gulp.task('browser-sync', function() {
 // Watch task
 gulp.task('watch', function() {
 
-	// gulp.watch([config.html.watch], ['html', reload]);
 	gulp.watch([config.sass.watch], ['sass', reload]);
 	gulp.watch([config.critical.watch], ['critical', reload]);
-	// gulp.watch(config.js.watch, ['browserify', reload]);
 	gulp.watch(config.misc.src, ['misc:copy', reload]);
 
 });
@@ -161,7 +123,6 @@ gulp.task('server', function() {
 
 	return runSequence(
 		['sass', 'critical', 'images', 'icons', 'misc:copy'],
-		// 'browserify',
 		'browser-sync',
 		'watch'
 	);
